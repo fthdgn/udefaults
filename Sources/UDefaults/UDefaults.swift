@@ -1,10 +1,10 @@
 import Foundation
 
-protocol UDefaults {
+public protocol UDefaults {
     var userDefaults: UserDefaults { get }
 }
 
-class UMapKey<T: Codable> {
+public class UMapKey<T: Codable> {
     private unowned let userDefaults: UserDefaults
     private let key: String
     private let defaultValue: T
@@ -64,7 +64,7 @@ class UMapKey<T: Codable> {
     }
 }
 
-class UKey<T:Codable> {
+public class UKey<T:Codable> {
     
     private unowned let userDefaults: UserDefaults
     private let key: String
