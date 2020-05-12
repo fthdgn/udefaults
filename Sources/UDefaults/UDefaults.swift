@@ -11,7 +11,7 @@ public class UMapKey<T: Codable> {
     private let decoder: JSONDecoder
     private let encoder: JSONEncoder
     
-    init(_ uDefaults: UDefaults, _ key: String, defValue: T) {
+    public init(_ uDefaults: UDefaults, _ key: String, defValue: T) {
         self.userDefaults = uDefaults.userDefaults
         self.key = key
         self.decoder = .init()
@@ -72,7 +72,7 @@ public class UKey<T:Codable> {
     private let decoder: JSONDecoder
     private let encoder: JSONEncoder
     
-    init(_ uDefaults: UDefaults, _ key: String, defValue: T) {
+    public init(_ uDefaults: UDefaults, _ key: String, defValue: T) {
         self.userDefaults = uDefaults.userDefaults
         self.key = key
         self.decoder = .init()
