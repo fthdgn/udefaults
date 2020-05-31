@@ -100,7 +100,7 @@ public class UKey<T:Codable> {
             T.self is Data.Type
     }
     
-    var value: T {
+    public var value: T {
         get{
             if (doesUserDefaultSupport()) {
                 return (userDefaults.value(forKey: key) as? T) ?? defaultValue
