@@ -36,7 +36,8 @@ public class UMapKey<T: Codable> {
             T.self is Float.Type ||
             T.self is Double.Type ||
             T.self is Date.Type ||
-            T.self is Data.Type
+            T.self is Data.Type ||
+            T.self is Bool.Type
     }
     
     
@@ -97,7 +98,8 @@ public class UKey<T:Codable> {
             T.self is Float.Type ||
             T.self is Double.Type ||
             T.self is Date.Type ||
-            T.self is Data.Type
+            T.self is Data.Type ||
+            T.self is Bool.Type
     }
     
     public var value: T {
