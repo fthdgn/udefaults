@@ -41,7 +41,7 @@ public class UMapKey<T: Codable> {
     }
     
     
-    subscript(indexKey: String) -> T {
+    public subscript(indexKey: String) -> T {
         get{
             let currentKey = "\(key)[\(indexKey)]"
             if (doesUserDefaultSupport()) {
