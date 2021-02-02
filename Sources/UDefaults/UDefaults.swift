@@ -49,7 +49,12 @@ public class UMapKey<T: Codable> {
             }
             
             if let data = userDefaults.value(forKey: currentKey) as? Data {
-                return try! decoder.decode(T.self, from: data)
+                do {
+                    return try decoder.decode(T.self, from: data)
+                } catch {
+                    print("UDefaults \(currentKey) decode error. Returning default value. Error: \(error)")
+                    return defaultValue
+                }
             }
             return defaultValue
         }
@@ -59,7 +64,11 @@ public class UMapKey<T: Codable> {
             if (doesUserDefaultSupport()) {
                 userDefaults.setValue(newValue, forKey: currentKey)
             } else {
-                userDefaults.setValue(try! encoder.encode(newValue), forKey: currentKey)
+                do {
+                    userDefaults.setValue(try encoder.encode(newValue), forKey: currentKey)
+                } catch {
+                    print("UDefaults \(currentKey) encode error. Value is not set. Error: \(error)")
+                }
             }
         }
     }
@@ -109,7 +118,12 @@ public class UKey<T:Codable> {
             }
             
             if let data = userDefaults.value(forKey: key) as? Data {
-                return try! decoder.decode(T.self, from: data)
+                do {
+                    return try decoder.decode(T.self, from: data)
+                } catch {
+                    print("UDefaults \(key) decode error. Returning default value. Error: \(error)")
+                    return defaultValue
+                }
             }
             return defaultValue
         }
@@ -118,7 +132,11 @@ public class UKey<T:Codable> {
             if (doesUserDefaultSupport()) {
                 userDefaults.setValue(newValue, forKey: key)
             } else {
-                userDefaults.setValue(try! encoder.encode(newValue), forKey: key)
+                do {
+                    userDefaults.setValue(try encoder.encode(newValue), forKey: key)
+                } catch {
+                    print("UDefaults \(key) encode error. Value is not set. Error: \(error)")
+                }
             }
         }
     }
